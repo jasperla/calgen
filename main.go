@@ -92,7 +92,14 @@ func pdf(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(c, "</table></body></html>")
 	c.Flush()
 
-	cmd := exec.Command("wkhtmltopdf", "-O", "landscape", "output.html", "output.pdf")
+	// wkhtmltopdf needs a display to run.
+	var cmd *exec.Cmd
+	if os.Getenv("DISPLAY") == "" {
+		cmd = exec.Command("xvfb-run", "wkhtmltopdf", "-O", "landscape", "output.html", "output.pdf")
+	} else {
+		cmd = exec.Command("wkhtmltopdf", "-O", "landscape", "output.html", "output.pdf")
+	}
+
 	out, err := cmd.Output()
 
 	if err != nil {
