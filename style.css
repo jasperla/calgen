@@ -1,11 +1,13 @@
 body {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  padding-top: 0.5cm;
+  padding-right: 0.5cm;
 }
 
 table.calendar {
   border-collapse: collapse;
   table-layout: fixed;
-  width: 1024px;
+  width: 100%;
 }
 
 table.calendar th {
