@@ -103,6 +103,7 @@ func pdf(w http.ResponseWriter, r *http.Request) {
 	out, err := cmd.Output()
 
 	if err != nil {
+		fmt.Println("wkhtmltopdf failed:")
 		fmt.Println(string(out))
 		fmt.Println(err)
 		return
