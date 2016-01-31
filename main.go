@@ -82,7 +82,7 @@ func pdf(w http.ResponseWriter, r *http.Request) {
 			// Account for the week offset
 			offset += ((time.Hour * 24) * 7) * time.Duration(week*1)
 			// Add the week offset, and deduct the first day
-			today := dateTime.Add(time.Hour*24 + offset - (time.Hour * 24))
+			today := dateTime.Add(time.Hour*24 + offset - (time.Hour * 24 * 2))
 			fmt.Fprintf(c, fmt.Sprintf("<td>%02d-%02d</td>", today.Day(), today.Month()))
 		}
 		fmt.Fprintf(c, "</tr>")
